@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Landing from "./pages/landing";
-
+import Login from "./pages/login";
 function App() {
   return (
     <div className="App">
-      <Landing />
+      <Router>
+        <Routes>
+          <Route element={<Landing />} path="/"></Route>
+          <Route element={<Login />} path="/login"></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
