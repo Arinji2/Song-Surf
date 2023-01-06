@@ -22,7 +22,9 @@ function Login() {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        window.location.assign("/verify");
+        if (auth.currentUser.emailVerified)
+          window.location.assign("/dashboard");
+        else window.location.assign("/verify");
       })
       .catch((error) => {
         setLoading(false);
@@ -43,7 +45,7 @@ function Login() {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then(() => {
-        console.log("ready");
+        window.location.assign("/dashboard");
       })
       .catch((error) => {
         setLoading(false);
@@ -68,7 +70,7 @@ function Login() {
             className="rounded-lg h-[42px] w-[90vw] md:w-[480px] text-[20px] p-4 outline-none font-bold"
             onChange={(e) => {
               e.currentTarget.value = e.currentTarget.value.replace(/ /g, "");
-              e.currentTarget.value = e.currentTarget.value.toLowerCase();
+
               setEmail(e.currentTarget.value);
             }}
           />
@@ -81,7 +83,7 @@ function Login() {
             className="rounded-lg h-[42px] w-[90vw] md:w-[480px] text-[20px] p-4 outline-none"
             onChange={(e) => {
               e.currentTarget.value = e.currentTarget.value.replace(/ /g, "");
-              e.currentTarget.value = e.currentTarget.value.toLowerCase();
+
               setPassword(e.currentTarget.value);
             }}
           />
