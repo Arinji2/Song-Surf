@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/fontawesome-free-solid";
+import { faBars, faTimes } from "@fortawesome/fontawesome-free-solid";
 function NavBar() {
   const [scroll, setScroll] = useState(0);
   const [nav, setNav] = useState(false);
@@ -12,6 +12,10 @@ function NavBar() {
 
     window.addEventListener("scroll", handleScroll);
   }, [scroll]);
+  const handleNav = () => {
+    if (nav === false) setNav(true);
+    else setNav(false);
+  };
   return (
     <React.Fragment>
       <div
@@ -48,16 +52,42 @@ function NavBar() {
         } fixed top-0 transition-all ease-in-out duration-300 md:hidden flex flex-col items-start justify-center text-white z-50`}
       >
         <div className="w-full h-full flex flex-row items-center justify-between">
-          <p>
-            <FontAwesomeIcon
-              icon={faBars}
-              className="ml-4 text-2xl"
-              onClick={setNav}
-            />
+          <p onClick={handleNav}>
+            <FontAwesomeIcon icon={faBars} className="ml-4 text-2xl" />
           </p>
 
           <p className="text-[20px] font-bold">SONG SURF</p>
           <p className="mr-3"></p>
+        </div>
+      </div>
+      <div
+        className={`${
+          nav
+            ? "w-[90vw] h-[100vh] bg-black z-[60] fixed top-0 transition-all ease-in-out duration-300 flex flex-col items-start justify-start text-white"
+            : "w-0 h-[100vh] text-transparent bg-black z-[60] fixed top-0 transition-all ease-in-out duration-300"
+        }`}
+      >
+        <div className="w-full h-[40%] flex flex-row items-center justify-center gap-10">
+          <h2 className="text-[40px] font-bold">Song Surf</h2>
+          <FontAwesomeIcon
+            icon={faTimes}
+            className="text-4xl absolute top-10 right-10"
+            onClick={handleNav}
+          />
+        </div>
+        <div className="w-full h-[60%] flex flex-col items-center justify-start gap-10 text-[30px] font-semibold">
+          <p>About</p>
+          <p>Team</p>
+          <p>Pricing</p>
+          <div
+            className={
+              nav
+                ? `w-[162px] h-[60px] bg-theme-200 text-center flex flex-col items-center justify-center hover:cursor-pointer hover:text-theme-200 hover:bg-white border-2 border-theme-200 transition-all ease-in-out duration-300 absolute bottom-10`
+                : `hidden`
+            }
+          >
+            Login
+          </div>
         </div>
       </div>
     </React.Fragment>
