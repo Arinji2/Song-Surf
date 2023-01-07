@@ -76,7 +76,7 @@ function Verify() {
   };
 
   onAuthStateChanged(auth, () => {
-    if (auth.currentUser.emailVerified && reset === false)
+    if (auth.currentUser.emailVerified && loading === false)
       window.location.assign("/dashboard");
   });
 
