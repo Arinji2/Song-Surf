@@ -33,6 +33,7 @@ function Login() {
         path: "../src/assets/complete.json",
         heigh: 200,
         width: 200,
+        responseType: "text",
       });
       setAnimation(newAnimation);
     }
