@@ -47,7 +47,7 @@ function Login() {
           if (auth.currentUser.emailVerified)
             window.location.assign("/dashboard");
           else window.location.assign("/verify");
-        }, 1500);
+        }, 15000);
       })
       .catch((error) => {
         setLoading(false);
@@ -73,7 +73,7 @@ function Login() {
           if (auth.currentUser.emailVerified)
             window.location.assign("/dashboard");
           else window.location.assign("/verify");
-        }, 1500);
+        }, 15000);
       })
       .catch((error) => {
         setLoading(false);
