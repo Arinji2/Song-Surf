@@ -2,7 +2,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faUserShield } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect } from "react";
-import NavBar from "../../components/navbar";
+
 import { Oval } from "react-loader-spinner";
 import {
   signInWithEmailAndPassword,
@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import lottie from "lottie-web";
+import NavBarSticky from "../../components/navbarsticky";
 
 function Login() {
   const [error, setError] = useState(false);
@@ -79,9 +80,9 @@ function Login() {
   };
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBarSticky />
       <div className="w-full h-fit md:h-screen bg-black flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-end gap-5 mb-20 mt-20 md:mt-0">
+        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-start gap-5  mt-20 md:mt-0">
           <h2 className="text-center text-[50px] text-theme-200 font-bold ">
             Login to Song Surf
           </h2>
