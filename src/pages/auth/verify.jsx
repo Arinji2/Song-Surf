@@ -33,7 +33,7 @@ function Verify() {
       });
 
       setAnimation(newAnimation);
-      newAnimation.setSpeed(0.5);
+
       newAnimation.addEventListener("complete", () => {
         if (auth.currentUser.emailVerified)
           window.location.assign("/dashboard");
