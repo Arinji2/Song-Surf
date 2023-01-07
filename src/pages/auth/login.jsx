@@ -30,10 +30,9 @@ function Login() {
         renderer: "svg",
         loop: false,
         autoplay: true,
-        path: "../src/assets/complete.json",
+        path: "./complete.json",
         heigh: 200,
         width: 200,
-        responseType: "text",
       });
       setAnimation(newAnimation);
     }
