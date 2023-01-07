@@ -10,6 +10,8 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase.config";
+import { Player } from "@lottiefiles/react-lottie-player";
+import gif from "../../assets/complete.json";
 function Login() {
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("No Account Found");
@@ -17,14 +19,18 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleLogin = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        if (auth.currentUser.emailVerified)
-          window.location.assign("/dashboard");
-        else window.location.assign("/verify");
+        setSuccess(true);
+        setTimeout(() => {
+          if (auth.currentUser.emailVerified)
+            window.location.assign("/dashboard");
+          else window.location.assign("/verify");
+        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -131,6 +137,8 @@ function Login() {
                 ? "hidden transition-all ease-in-out duration-300"
                 : error
                 ? "hidden transition-all ease-in-out duration-300"
+                : success
+                ? "hidden transition-all ease-in-out duration-300"
                 : "text-theme-200 text-[250px] transition-all ease-in-out duration-300"
             }
           />
@@ -162,6 +170,21 @@ function Login() {
               height={300}
               width={300}
             />
+          </div>
+          <div
+            className={
+              success
+                ? "w-full h-full bg-black flex flex-col items-center justify-center fixed top-0 left-0 z-20"
+                : "hidden"
+            }
+          >
+            <Player
+              autoplay={true}
+              loop={true}
+              speed={1}
+              src={gif}
+              style={{ height: "400px", width: "400px" }}
+            ></Player>
           </div>
         </div>
       </div>
