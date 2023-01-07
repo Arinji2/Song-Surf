@@ -8,17 +8,33 @@ import NavBar from "../../components/navbar";
 import { auth, storage, db } from "../../firebase.config";
 import { setDoc, doc } from "firebase/firestore";
 import { uploadBytes, ref } from "firebase/storage";
-import { Player } from "@lottiefiles/react-lottie-player";
-import gif from "../../assets/complete.json";
 
 import { onAuthStateChanged, sendEmailVerification } from "firebase/auth";
 import { Oval } from "react-loader-spinner";
+import Lottie from "lottie-web";
 function Verify() {
   const [loading, setLoading] = useState(false);
-  const [sucess, setSucess] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [reset, setReset] = useState(false);
   const [error, setError] = useState(false);
 
+  const [animation, setAnimation] = useState(null);
+
+  useEffect(() => {
+    if (success) {
+      const newAnimation = Lottie.loadAnimation({
+        container: document.getElementById("animation-container"),
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        path: "../src/assets/complete.json",
+        heigh: 200,
+        width: 200,
+      });
+      console.log("run");
+      setAnimation(newAnimation);
+    }
+  }, [success]);
   const sendEmail = () => {
     sendEmailVerification(auth.currentUser);
     setReset(true);
@@ -46,10 +62,10 @@ function Verify() {
           .then(() => {
             setError(false);
             setLoading(false);
-            setSucess(true);
+            setSuccess(true);
             setTimeout(() => {
               window.location.assign("/dashboard");
-            }, 1000);
+            }, 1500);
           })
           .catch((er) => {
             setLoading(false);
@@ -74,12 +90,10 @@ function Verify() {
       }
     }, 1000);
   };
-
   onAuthStateChanged(auth, () => {
     if (auth.currentUser.emailVerified && loading === false)
       window.location.assign("/dashboard");
   });
-
   return (
     <React.Fragment>
       <NavBar />
@@ -115,7 +129,7 @@ function Verify() {
                 ? "hidden"
                 : loading
                 ? "hidden"
-                : sucess
+                : success
                 ? "hidden"
                 : error
                 ? "hidden"
@@ -173,19 +187,12 @@ function Verify() {
           </div>
           <div
             className={
-              sucess
+              success
                 ? "w-full h-full bg-black flex flex-col items-center justify-center fixed top-0 left-0 z-20"
                 : "hidden"
             }
-          >
-            <Player
-              autoplay={true}
-              loop={true}
-              speed={1}
-              src={gif}
-              style={{ height: "400px", width: "400px" }}
-            ></Player>
-          </div>
+            id="animation-container"
+          ></div>
         </div>
       </div>
     </React.Fragment>

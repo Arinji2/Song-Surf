@@ -10,8 +10,8 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase.config";
-import { Player } from "@lottiefiles/react-lottie-player";
-import gif from "../../assets/complete.json";
+import lottie from "lottie-web";
+
 function Login() {
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("No Account Found");
@@ -20,6 +20,23 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const [animation, setAnimation] = useState(null);
+
+  useEffect(() => {
+    if (success) {
+      const newAnimation = lottie.loadAnimation({
+        container: document.getElementById("animation-container"),
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        path: "../src/assets/complete.json",
+        heigh: 200,
+        width: 200,
+      });
+      setAnimation(newAnimation);
+    }
+  }, [success]);
 
   const handleLogin = () => {
     setLoading(true);
@@ -51,7 +68,12 @@ function Login() {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then(() => {
-        window.location.assign("/dashboard");
+        setSuccess(true);
+        setTimeout(() => {
+          if (auth.currentUser.emailVerified)
+            window.location.assign("/dashboard");
+          else window.location.assign("/verify");
+        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -177,15 +199,8 @@ function Login() {
                 ? "w-full h-full bg-black flex flex-col items-center justify-center fixed top-0 left-0 z-20"
                 : "hidden"
             }
-          >
-            <Player
-              autoplay={true}
-              loop={true}
-              speed={1}
-              src={gif}
-              style={{ height: "400px", width: "400px" }}
-            ></Player>
-          </div>
+            id="animation-container"
+          ></div>
         </div>
       </div>
     </React.Fragment>

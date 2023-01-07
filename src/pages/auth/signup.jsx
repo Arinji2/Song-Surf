@@ -12,8 +12,8 @@ import NavBar from "../../components/navbar";
 import { auth, db, storage } from "../../firebase.config";
 import { setDoc, doc } from "firebase/firestore";
 import { uploadBytes, ref } from "firebase/storage";
-import { Player } from "@lottiefiles/react-lottie-player";
-import sucess from "../../assets/complete.json";
+
+import Lottie from "lottie-web";
 function SignUp() {
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("No Account Found");
@@ -22,6 +22,24 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [complete, setComplete] = useState(false);
+
+  const [animation, setAnimation] = useState(null);
+
+  useEffect(() => {
+    if (complete) {
+      const newAnimation = Lottie.loadAnimation({
+        container: document.getElementById("animation-container"),
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        path: "../src/assets/complete.json",
+        heigh: 200,
+        width: 200,
+      });
+      console.log(newAnimation);
+      setAnimation(newAnimation);
+    }
+  }, [complete]);
 
   const signIn = () => {
     setLoading(true);
@@ -33,7 +51,7 @@ function SignUp() {
           if (auth.currentUser.emailVerified)
             window.location.assign("/dashboard");
           else window.location.assign("/verify");
-        }, 1000);
+        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -74,7 +92,7 @@ function SignUp() {
                 setComplete(true);
                 setTimeout(() => {
                   window.location.assign("/dashboard");
-                }, 1000);
+                }, 1500);
               })
               .catch((er) => {
                 setLoading(false);
@@ -208,24 +226,10 @@ function SignUp() {
                 : "hidden"
             }
           >
-            <div className="w-[50vw] h-[70vh] bg-black md:block hidden">
-              <Player
-                autoplay={true}
-                loop={true}
-                speed={1}
-                src={sucess}
-                style={{ height: "400px", width: "400px" }}
-              ></Player>
-            </div>
-            <div className=" bg-black md:hidden block">
-              <Player
-                autoplay={true}
-                loop={true}
-                speed={1}
-                src={sucess}
-                style={{ height: "300px", width: "300px" }}
-              ></Player>
-            </div>
+            <div
+              className="md:w-[50vw] md:h-[70vh] bg-black "
+              id="animation-container"
+            ></div>
           </div>
         </div>
       </div>
