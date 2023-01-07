@@ -12,6 +12,7 @@ import {
 import { auth } from "../../firebase.config";
 import lottie from "lottie-web";
 import NavBarSticky from "../../components/navbarsticky";
+import NavBar from "../../components/navbar";
 
 function Login() {
   const [error, setError] = useState(false);
@@ -80,9 +81,9 @@ function Login() {
   };
   return (
     <React.Fragment>
-      <NavBarSticky />
+      <NavBar />
       <div className="w-full h-fit md:h-screen bg-black flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-start gap-5  mt-20 md:mt-0">
+        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-center gap-5 mt-20 md:mt-4">
           <h2 className="text-center text-[50px] text-theme-200 font-bold ">
             Login to Song Surf
           </h2>
