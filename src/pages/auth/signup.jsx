@@ -38,10 +38,10 @@ function SignUp() {
       .catch((error) => {
         setLoading(false);
         setError(true);
-        if (error.code === "auth/user-not-found")
-          setErrorText("Could Not Find User");
-        else if (error.code === "auth/wrong-password")
-          setErrorText("Incorrect Password");
+        if (error.code === "auth/email-already-in-use")
+          setErrorText("Email Already Exists");
+        else if (error.code === "auth/weak-password")
+          setErrorText("Weak Password");
         else if (error.code === "auth/internal-error")
           setErrorText("An Internal Error has Occurred, Try again later");
         else if (error.code === "auth/invalid-email")
@@ -98,7 +98,7 @@ function SignUp() {
     <React.Fragment>
       <NavBar />
       <div className="w-full h-fit md:h-screen bg-black flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-end gap-5 mb-10 mt-20 md:mt-0">
+        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-end gap-5 mb-10 mt-10 md:mt-0">
           <h2 className="text-center text-[50px] text-theme-200 font-bold ">
             Sign Up to Song Surf
           </h2>
