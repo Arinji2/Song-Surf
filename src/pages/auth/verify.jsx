@@ -31,7 +31,7 @@ function Verify() {
         heigh: 200,
         width: 200,
       });
-      console.log("run");
+
       setAnimation(newAnimation);
     }
   }, [success]);
@@ -76,7 +76,6 @@ function Verify() {
       .catch((er) => {
         setLoading(false);
         setError(true);
-        console.log(er);
       });
   };
 

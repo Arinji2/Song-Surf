@@ -21,7 +21,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const [animation, setAnimation] = useState(null);
+  const [, setAnimation] = useState(null);
 
   useEffect(() => {
     if (success) {
@@ -47,7 +47,7 @@ function Login() {
           if (auth.currentUser.emailVerified)
             window.location.assign("/dashboard");
           else window.location.assign("/verify");
-        }, 15000);
+        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -73,7 +73,7 @@ function Login() {
           if (auth.currentUser.emailVerified)
             window.location.assign("/dashboard");
           else window.location.assign("/verify");
-        }, 15000);
+        }, 1500);
       })
       .catch((error) => {
         setLoading(false);

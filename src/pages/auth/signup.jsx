@@ -36,7 +36,7 @@ function SignUp() {
         heigh: 200,
         width: 200,
       });
-      console.log(newAnimation);
+
       setAnimation(newAnimation);
     }
   }, [complete]);
