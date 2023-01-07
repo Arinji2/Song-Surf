@@ -35,6 +35,12 @@ function Login() {
         width: 200,
       });
       setAnimation(newAnimation);
+      newAnimation.setSpeed(0.5);
+      newAnimation.addEventListener("complete", () => {
+        if (auth.currentUser.emailVerified)
+          window.location.assign("/dashboard");
+        else window.location.assign("/verify");
+      });
     }
   }, [success]);
 
@@ -43,11 +49,6 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         setSuccess(true);
-        setTimeout(() => {
-          if (auth.currentUser.emailVerified)
-            window.location.assign("/dashboard");
-          else window.location.assign("/verify");
-        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -69,11 +70,6 @@ function Login() {
     signInWithPopup(auth, googleProvider)
       .then(() => {
         setSuccess(true);
-        setTimeout(() => {
-          if (auth.currentUser.emailVerified)
-            window.location.assign("/dashboard");
-          else window.location.assign("/verify");
-        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -196,11 +192,12 @@ function Login() {
           <div
             className={
               success
-                ? "w-full h-full bg-black flex flex-col items-center justify-center fixed top-0 left-0 z-20"
+                ? "w-full h-screen bg-black flex flex-col items-center justify-end fixed top-0 left-0 z-20"
                 : "hidden"
             }
-            id="animation-container"
-          ></div>
+          >
+            <div id="animation-container" className=" "></div>
+          </div>
         </div>
       </div>
     </React.Fragment>

@@ -38,6 +38,12 @@ function SignUp() {
       });
 
       setAnimation(newAnimation);
+      newAnimation.setSpeed(0.5);
+      newAnimation.addEventListener("complete", () => {
+        if (auth.currentUser.emailVerified)
+          window.location.assign("/dashboard");
+        else window.location.assign("/verify");
+      });
     }
   }, [complete]);
 
@@ -47,11 +53,6 @@ function SignUp() {
       .then(() => {
         setLoading(false);
         setComplete(true);
-        setTimeout(() => {
-          if (auth.currentUser.emailVerified)
-            window.location.assign("/dashboard");
-          else window.location.assign("/verify");
-        }, 1500);
       })
       .catch((error) => {
         setLoading(false);
@@ -90,9 +91,6 @@ function SignUp() {
               .then(() => {
                 setLoading(false);
                 setComplete(true);
-                setTimeout(() => {
-                  window.location.assign("/dashboard");
-                }, 1500);
               })
               .catch((er) => {
                 setLoading(false);

@@ -33,6 +33,12 @@ function Verify() {
       });
 
       setAnimation(newAnimation);
+      newAnimation.setSpeed(0.5);
+      newAnimation.addEventListener("complete", () => {
+        if (auth.currentUser.emailVerified)
+          window.location.assign("/dashboard");
+        else window.location.assign("/verify");
+      });
     }
   }, [success]);
   const sendEmail = () => {
@@ -63,9 +69,6 @@ function Verify() {
             setError(false);
             setLoading(false);
             setSuccess(true);
-            setTimeout(() => {
-              window.location.assign("/dashboard");
-            }, 1500);
           })
           .catch((er) => {
             setLoading(false);
