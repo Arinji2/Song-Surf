@@ -27,6 +27,7 @@ function Verify() {
 
   const checkDocs = () => {
     setError(false);
+    setReset(false);
     setLoading(true);
     const docRef = doc(db, "users", auth.currentUser.uid);
     setDoc(docRef, {
@@ -75,7 +76,8 @@ function Verify() {
   };
 
   onAuthStateChanged(auth, () => {
-    if (auth.currentUser.emailVerified) window.location.assign("/dashboard");
+    if (auth.currentUser.emailVerified && reset === false)
+      window.location.assign("/dashboard");
   });
 
   return (
