@@ -65,12 +65,13 @@ function Verify() {
 
   const checkEmail = () => {
     auth.currentUser.reload();
-    if (auth.currentUser.emailVerified) checkDocs();
-    else {
-      setReset(false);
-      setError(true);
-    }
-    console.log(auth.currentUser);
+    setTimeout(() => {
+      if (auth.currentUser.emailVerified) checkDocs();
+      else {
+        setReset(false);
+        setError(true);
+      }
+    }, 1000);
   };
 
   onAuthStateChanged(auth, () => {
