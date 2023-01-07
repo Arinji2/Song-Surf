@@ -192,7 +192,7 @@ function Login() {
           <div
             className={
               success
-                ? "w-full h-screen bg-black flex flex-col items-center justify-end fixed top-0 left-0 z-20"
+                ? "w-full h-screen bg-black flex flex-col items-center justify-center fixed top-0 left-0 z-20"
                 : "hidden"
             }
           >
