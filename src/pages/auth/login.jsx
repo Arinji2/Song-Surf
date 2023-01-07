@@ -81,7 +81,7 @@ function Login() {
     <React.Fragment>
       <NavBar />
       <div className="w-full h-fit md:h-screen bg-black flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-end gap-5 mb-10 mt-20 md:mt-0">
+        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-end gap-5 mb-20 mt-20 md:mt-0">
           <h2 className="text-center text-[50px] text-theme-200 font-bold ">
             Login to Song Surf
           </h2>
