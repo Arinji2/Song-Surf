@@ -36,7 +36,7 @@ function Verify() {
 
       newAnimation.addEventListener("complete", () => {
         if (auth.currentUser.emailVerified)
-          window.location.assign("/dashboard");
+          window.location.assign(`/dashboard/${auth.currentUser.uid}`);
         else window.location.assign("/verify");
       });
     }
@@ -97,8 +97,12 @@ function Verify() {
     }, 1000);
   };
   onAuthStateChanged(auth, () => {
-    if (auth.currentUser.emailVerified && loading === false)
-      window.location.assign("/dashboard");
+    if (
+      auth.currentUser.emailVerified &&
+      loading === false &&
+      success === false
+    )
+      window.location.assign(`/dashboard/${auth.currentUser.uid}`);
   });
   return (
     <React.Fragment>
