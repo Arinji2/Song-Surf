@@ -26,7 +26,7 @@ function Finish() {
         width: 200,
       });
       newAnimation.addEventListener("complete", () => {
-        window.location.assign(`/dashboard/${auth.currentUser.uid}`);
+        window.location.assign(`/dashboard`);
       });
     }
   }, [success]);

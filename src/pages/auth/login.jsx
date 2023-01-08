@@ -40,7 +40,7 @@ function Login() {
 
       newAnimation.addEventListener("complete", () => {
         if (auth.currentUser.emailVerified)
-          window.location.assign(`/dashboard/${auth.currentUser.uid}`);
+          window.location.assign(`/dashboard`);
         else window.location.assign("/verify");
       });
     }

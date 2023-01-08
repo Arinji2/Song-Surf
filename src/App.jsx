@@ -16,7 +16,7 @@ function App() {
           <Route element={<Reset />} path="/reset"></Route>
           <Route element={<Verify />} path="/verify"></Route>
           <Route element={<SignUp />} path="/signup"></Route>
-          <Route element={<Dashboard />} path="/dashboard/:id"></Route>
+          <Route element={<Dashboard />} path="/dashboard"></Route>
           <Route element={<Finish />} path="/finish"></Route>
         </Routes>
       </Router>

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-import { useParams } from "react-router-dom";
 import { auth, db } from "../firebase.config";
 import { getDoc, doc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
@@ -9,28 +8,29 @@ import icon from "../assets/default.svg";
 import Account from "../assets/account.jpg";
 import Upload from "../assets/upload.jpg";
 import Songs from "../assets/songs.jpg";
+import Lottie from "lottie-web";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Dashboard() {
-  const { id } = useParams();
   const [document, setDocument] = useState(null);
   const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const docRef = doc(db, "users", id);
-    getDoc(docRef)
-      .then((res) => {
-        setDocument(res.data());
-        if (res.data().pref.pic == null) window.location.assign("/finish");
-        setReady(true);
-      })
-      .catch((er) => {
-        console.log(er);
-        console.log(auth.currentUser);
-      });
-  }, [id]);
+  const [id, setId] = useState("");
+  const container = useRef(null);
 
   onAuthStateChanged(auth, () => {
-    if (auth.currentUser.uid != id) window.location.assign("/login");
+    if (auth) {
+      const docRef = doc(db, "users", auth.currentUser.uid);
+      getDoc(docRef)
+        .then((res) => {
+          setDocument(res.data());
+          if (res.data().pref.pic == null) window.location.assign("/finish");
+          setReady(true);
+        })
+        .catch((er) => {
+          console.log(er);
+          console.log(auth.currentUser);
+        });
+    }
   });
 
   return (
@@ -39,9 +39,9 @@ function Dashboard() {
       <div className="w-full h-screen bg-[#090707]">
         <div
           className={
-            !document
-              ? "w-full h-full opacity-0 transition-all ease-in-out duration-300"
-              : "w-full h-full opacity-100 transition-all ease-in-out duration-300 flex flex-col items-center justify-center gap-5"
+            ready
+              ? "w-full h-full opacity-100 transition-all ease-in-out duration-1000 flex flex-col items-center justify-center gap-5"
+              : "w-full h-full opacity-0 transition-all ease-in-out duration-1000 flex flex-col items-center justify-center gap-5"
           }
         >
           <p className="text-[30px] md:text-[40px] text-white font-bold">
@@ -64,6 +64,20 @@ function Dashboard() {
             <Card img={Songs} head="Songs" disc="Play your Songs" link="play" />
           </div>
         </div>
+      </div>
+      <div
+        className={
+          ready
+            ? "hidden"
+            : "w-full h-screen bg-black z-20 absolute top-0 flex flex-col items-center justify-center"
+        }
+      >
+        <Player
+          src={"./loading.json"}
+          autoplay={true}
+          loop={true}
+          style={{ width: 200, height: 200 }}
+        />
       </div>
     </React.Fragment>
   );
