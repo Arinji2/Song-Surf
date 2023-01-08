@@ -81,6 +81,10 @@ function SignUp() {
           uid: auth.currentUser.uid,
           storage: `/users/${auth.currentUser.uid}`,
           songs: [],
+          pref: {
+            dark: true,
+            pic: null,
+          },
         })
           .then(() => {
             const storeRef = ref(
