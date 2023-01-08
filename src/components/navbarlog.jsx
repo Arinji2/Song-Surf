@@ -9,7 +9,8 @@ function NavBarLog({ icon }) {
   const [scroll, setScroll] = useState(0);
   const [nav, setNav] = useState(false);
   const [svg, setSvg] = useState();
-  const container = useRef(null);
+  const containerPc = useRef(null);
+  const containerMob = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +29,8 @@ function NavBarLog({ icon }) {
       const docRef = doc(db, "users", auth.currentUser.uid);
       getDoc(docRef).then((res) => {
         setSvg(res.data().pref.pic);
-        container.current.innerHTML = res.data().pref.pic;
+        containerPc.current.innerHTML = res.data().pref.pic;
+        containerMob.current.innerHTML = res.data().pref.pic;
       });
     }
   });
@@ -100,7 +102,7 @@ function NavBarLog({ icon }) {
               className={svg === null ? "w-full aspect-auto" : "hidden"}
             />
             <p
-              ref={container}
+              ref={containerPc}
               className={svg === null ? "hidden" : "w-full aspect-auto"}
             ></p>
           </div>
@@ -160,7 +162,7 @@ function NavBarLog({ icon }) {
               className={svg === null ? "w-full aspect-auto" : "hidden"}
             />
             <p
-              ref={container}
+              ref={containerMob}
               className={svg === null ? "hidden" : "w-full aspect-auto"}
             ></p>
           </div>
