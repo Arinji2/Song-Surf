@@ -21,7 +21,7 @@ function Reset() {
     <React.Fragment>
       <NavBar />
 
-      <div className="w-full h-fit md:h-screen bg-black flex flex-col md:flex-row items-center justify-center">
+      <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col md:flex-row items-center justify-center">
         <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-center gap-5 mb-10 mt-20 md:mt-0">
           <h2 className="text-center text-[50px] text-theme-200 font-bold ">
             Reset your Song Surf Password

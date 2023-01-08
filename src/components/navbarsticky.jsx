@@ -63,8 +63,8 @@ function NavBarSticky() {
       <div
         className={`${
           nav
-            ? "w-[90vw] h-[100vh] bg-black z-[60] fixed top-0 transition-all ease-in-out duration-300 flex flex-col items-start justify-start text-white"
-            : "w-0 h-[100vh] text-transparent bg-black z-[60] fixed top-0 transition-all ease-in-out duration-300"
+            ? "w-[90vw] h-[100vh] bg-[#090707] z-[60] fixed top-0 transition-all ease-in-out duration-300 flex flex-col items-start justify-start text-white"
+            : "w-0 h-[100vh] text-transparent bg-[#090707] z-[60] fixed top-0 transition-all ease-in-out duration-300"
         }`}
       >
         <div className="w-full h-[40%] flex flex-row items-center justify-center gap-10">

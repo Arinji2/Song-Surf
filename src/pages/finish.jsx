@@ -72,7 +72,7 @@ function Finish() {
   return (
     <React.Fragment>
       <NavBarLog icon={icon} />
-      <div className="w-full h-screen bg-black flex flex-col items-center justify-center gap-5">
+      <div className="w-full h-screen bg-[#090707] flex flex-col items-center justify-center gap-5">
         <h1 className="text-theme-200 text-[30px]  md:text-[40px] font-bold">
           Finish Your Account Setup
         </h1>
@@ -113,7 +113,7 @@ function Finish() {
       <div
         className={
           loading
-            ? "absolute z-30 w-full h-[85vh] bottom-0 left-0 bg-black"
+            ? "absolute z-30 w-full h-[85vh] bottom-0 left-0 bg-[#090707]"
             : "hidden"
         }
         id="loading-container"
@@ -121,7 +121,7 @@ function Finish() {
       <div
         className={
           success
-            ? "absolute z-50 w-full h-[85vh] bottom-0 left-0 bg-black"
+            ? "absolute z-50 w-full h-[85vh] bottom-0 left-0 bg-[#090707]"
             : "hidden"
         }
         id="success-container"

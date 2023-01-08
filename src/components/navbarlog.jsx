@@ -38,7 +38,7 @@ function NavBarLog({ icon }) {
     <React.Fragment>
       <div
         className={`w-full h-[120px] bg-${
-          scroll > 60 ? "[#262525]" : "transparent"
+          scroll > 60 ? "[#262525]" : "[#090707]"
         } fixed top-0 transition-all ease-in-out duration-300 md:flex hidden flex-row items-center justify-between text-white font-bold z-50 `}
       >
         <div className="w-[33%] h-full text-center  flex flex-col items-start justify-center text-[30px] ">
@@ -125,8 +125,8 @@ function NavBarLog({ icon }) {
       <div
         className={`${
           nav
-            ? "w-[90vw] h-[100vh] bg-black z-[60] fixed top-0 transition-all ease-in-out duration-300 flex flex-col items-start justify-start text-white"
-            : "w-0 h-[100vh] text-transparent bg-black z-[60] fixed top-0 transition-all ease-in-out duration-300"
+            ? "w-[90vw] h-[100vh] bg-[#090707] z-[60] fixed top-0 transition-all ease-in-out duration-300 flex flex-col items-start justify-start text-white"
+            : "w-0 h-[100vh] text-transparent bg-[#090707] z-[60] fixed top-0 transition-all ease-in-out duration-300"
         }`}
       >
         <div className="w-full h-[40%] flex flex-row items-center justify-center gap-10">

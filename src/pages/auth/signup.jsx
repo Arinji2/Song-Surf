@@ -117,7 +117,7 @@ function SignUp() {
   return (
     <React.Fragment>
       <NavBar />
-      <div className="w-full h-fit md:h-screen bg-black flex flex-col md:flex-row items-center justify-center">
+      <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col md:flex-row items-center justify-center">
         <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-center gap-5  mt-20 md:mt-4">
           <h2 className="text-center text-[50px] text-theme-200 font-bold ">
             Sign Up to Song Surf
@@ -224,12 +224,12 @@ function SignUp() {
           <div
             className={
               complete
-                ? "left-0 bg-black h-screen w-full  flex flex-col items-center md:justify-end justify-center fixed top-0"
+                ? "left-0 bg-[#090707] h-screen w-full  flex flex-col items-center md:justify-end justify-center fixed top-0"
                 : "hidden"
             }
           >
             <div
-              className="md:w-[50vw] md:h-[70vh] bg-black "
+              className="md:w-[50vw] md:h-[70vh] bg-[#090707] "
               id="animation-container"
             ></div>
           </div>

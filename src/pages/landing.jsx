@@ -51,7 +51,7 @@ function Hero() {
 
 function Process() {
   return (
-    <div className="w-full h-fit md:h-screen bg-black flex flex-col items-center justify-center gap-5 text-white">
+    <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col items-center justify-center gap-5 text-white">
       <h1 className="text-[40px] font-bold mb-5">The Process</h1>
       <div className="w-full flex flex-col md:flex-row items-center justify-evenly mt-14 gap-y-20 mb-10">
         <Card
@@ -121,7 +121,7 @@ function Awesome() {
 
 function Features() {
   return (
-    <div className="h-fit md:h-screen w-full relative bg-black flex flex-col items-center justify-center text-white">
+    <div className="h-fit md:h-screen w-full relative bg-[#090707] flex flex-col items-center justify-center text-white">
       <h1 className="text-[50px] font-bold mb-5 mt-10">Features</h1>
       <div className="flex flex-col md:flex-row items-center justify-evenly w-full mb-10 gap-10">
         <Card icon={faPenSquare} head="Modern Design" />
