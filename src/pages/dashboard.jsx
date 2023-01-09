@@ -4,11 +4,11 @@ import { auth, db } from "../firebase.config";
 import { getDoc, doc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import NavBarLog from "../components/navbarlog";
-import icon from "../assets/default.svg";
+
 import Account from "../assets/account.jpg";
 import Upload from "../assets/upload.jpg";
 import Songs from "../assets/songs.jpg";
-import Lottie from "lottie-web";
+
 import { Player } from "@lottiefiles/react-lottie-player";
 
 function Dashboard() {
@@ -16,26 +16,27 @@ function Dashboard() {
   const [ready, setReady] = useState(false);
   const [id, setId] = useState("");
   const container = useRef(null);
-
-  onAuthStateChanged(auth, () => {
-    if (auth) {
-      const docRef = doc(db, "users", auth.currentUser.uid);
-      getDoc(docRef)
-        .then((res) => {
-          setDocument(res.data());
-          if (res.data().pref.pic == null) window.location.assign("/finish");
-          setReady(true);
-        })
-        .catch((er) => {
-          console.log(er);
-          console.log(auth.currentUser);
-        });
-    }
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, () => {
+      if (auth) {
+        const docRef = doc(db, "users", auth.currentUser.uid);
+        getDoc(docRef)
+          .then((res) => {
+            setDocument(res.data());
+            if (res.data().pref.pic == null) window.location.assign("/finish");
+            setReady(true);
+          })
+          .catch((er) => {
+            console.log(er);
+            console.log(auth.currentUser);
+          });
+      }
+    });
+  }, []);
 
   return (
     <React.Fragment>
-      <NavBarLog icon={icon} />
+      <NavBarLog />
       <div className="w-full h-fit md:h-screen bg-[#090707]">
         <div
           className={

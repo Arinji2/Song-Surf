@@ -5,7 +5,8 @@ import { faBars, faTimes } from "@fortawesome/fontawesome-free-solid";
 import { getDoc, doc } from "firebase/firestore";
 import { db, auth } from "../firebase.config";
 import { onAuthStateChanged } from "firebase/auth";
-function NavBarLog({ icon }) {
+import icon from "../assets/default.svg";
+function NavBarLog() {
   const [scroll, setScroll] = useState(0);
   const [nav, setNav] = useState(false);
   const [svg, setSvg] = useState();
@@ -23,17 +24,20 @@ function NavBarLog({ icon }) {
     if (nav === false) setNav(true);
     else setNav(false);
   };
+  useEffect(() => {
+    onAuthStateChanged(auth, () => {
+      if (auth) {
+        const docRef = doc(db, "users", auth.currentUser.uid);
+        getDoc(docRef).then((res) => {
+          setSvg(res.data().pref.pic);
 
-  onAuthStateChanged(auth, () => {
-    if (auth) {
-      const docRef = doc(db, "users", auth.currentUser.uid);
-      getDoc(docRef).then((res) => {
-        setSvg(res.data().pref.pic);
-        containerPc.current.innerHTML = res.data().pref.pic;
-        containerMob.current.innerHTML = res.data().pref.pic;
-      });
-    }
-  });
+          containerPc.current.innerHTML = res.data().pref.pic;
+          containerMob.current.innerHTML = res.data().pref.pic;
+        });
+      }
+    });
+  }, []);
+
   return (
     <React.Fragment>
       <div
