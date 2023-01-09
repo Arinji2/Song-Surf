@@ -36,19 +36,19 @@ function Dashboard() {
   return (
     <React.Fragment>
       <NavBarLog icon={icon} />
-      <div className="w-full h-screen bg-[#090707]">
+      <div className="w-full h-fit md:h-screen bg-[#090707]">
         <div
           className={
             ready
               ? "w-full h-full opacity-100 transition-all ease-in-out duration-1000 flex flex-col items-center justify-center gap-5"
-              : "w-full h-full opacity-0 transition-all ease-in-out duration-1000 flex flex-col items-center justify-center gap-5"
+              : "w-full h-full opacity-0 transition-all ease-in-out duration-1000 flex flex-col items-center justify-end md:justify-center gap-5"
           }
         >
-          <p className="text-[30px] md:text-[40px] text-white font-bold">
+          <p className="text-[30px] md:text-[40px] text-white font-bold mt-20 md:mt-0">
             Welcome back{" "}
             <span className="text-theme-200">{ready ? document.name : ""}</span>
           </p>
-          <div className="w-screen flex flex-row items-center justify-evenly relative top-10">
+          <div className="w-screen flex flex-col md:flex-row items-center justify-center md:justify-evenly relative md:top-10 gap-y-5 mb-20 md:mb-0 mt-20 md:mt-0">
             <Card
               img={Account}
               head="Account"
@@ -86,7 +86,7 @@ function Dashboard() {
 function Card({ img, head, disc, link }) {
   return (
     <div
-      className="h-[400px] w-[250px] bg-theme-100 rounded-lg relative flex flex-col items-center justify-center group overflow-hidden md:hover:scale-110 shadow-xl shadow-black transition-all ease-in-out duration-300 hover:cursor-pointer scale-[.85] md:scale-100 text-center"
+      className="h-[400px] w-[250px] bg-theme-100 rounded-lg relative flex flex-col items-center justify-center group overflow-hidden md:hover:scale-110 shadow-xl shadow-black transition-all ease-in-out duration-300 hover:cursor-pointer scale-100 text-center"
       onClick={() => {
         window.location.assign(`/${link}`);
       }}
@@ -94,13 +94,13 @@ function Card({ img, head, disc, link }) {
       <img
         src={img}
         alt={"image"}
-        className="object-cover rounded-lg h-full w-full z-0 absolute  md:group-hover:scale-[1.5] transition-all ease-in-out duration-500"
+        className="object-cover rounded-lg h-full w-full z-0 absolute  group-hover:scale-[1.5] transition-all ease-in-out duration-500"
       />
       <div className="h-full w-full z-10 bg-[#262525] opacity-60  transition-all ease-in-out duration-300 absolute rounded-lg"></div>
-      <h2 className="text-white text-[30px] md:text-[40px] transition-all ease-in-out duration-300 font-bold z-20 scale-[.85] md:scale-100">
+      <h2 className="text-white text-[30px] md:text-[40px] transition-all ease-in-out duration-300 font-bold z-20">
         {head}
       </h2>
-      <p className="text-theme-200 absolute bottom-10 text-[20px] z-20 font-semibold scale-[.85] md:scale-100">
+      <p className="text-theme-200 absolute bottom-10 text-[20px] z-20 font-semibold ">
         {disc}
       </p>
     </div>
