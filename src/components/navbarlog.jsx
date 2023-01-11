@@ -59,6 +59,15 @@ function NavBarLog() {
           <span
             className="flex flex-col items-center justify-center group hover:cursor-pointer"
             onClick={() => {
+              window.location.assign("/dashboard");
+            }}
+          >
+            <p>Dashboard</p>{" "}
+            <p className="w-0 group-hover:w-full h-[5px] bg-white transition-all ease-in-out duration-500 "></p>
+          </span>
+          <span
+            className="flex flex-col items-center justify-center group hover:cursor-pointer"
+            onClick={() => {
               window.location.assign("/account");
             }}
           >
@@ -133,7 +142,7 @@ function NavBarLog() {
             : "w-0 h-[100vh] text-transparent bg-[#090707] z-[60] fixed top-0 transition-all ease-in-out duration-300"
         }`}
       >
-        <div className="w-full h-[40%] flex flex-row items-center justify-center gap-10">
+        <div className="w-full h-[30%] flex flex-row items-center justify-center gap-10">
           <h2 className="text-[40px] font-bold">Song Surf</h2>
           <FontAwesomeIcon
             icon={faTimes}
@@ -142,6 +151,7 @@ function NavBarLog() {
           />
         </div>
         <div className="w-full h-[50%] flex flex-col items-center justify-start gap-5 text-[30px] font-semibold">
+          <p>Dashboard</p>
           <p>Account</p>
           <p>Uploader</p>
           <p>Player</p>
@@ -150,12 +160,16 @@ function NavBarLog() {
         <div
           className={
             nav
-              ? "w-[100vw] h-[20%] flex flex-col items-center justify-center transition-all ease-in-out duration-300"
-              : "w-0 h-[10%]  flex-col items-center justify-center hidden transition-all ease-in-out duration-300"
+              ? "w-[100vw] h-[20%] flex flex-col items-center justify-center  transition-all ease-in-out duration-1000 translate-x-0"
+              : "w-0 h-[10%]  flex-col items-center justify-center transition-all ease-in-out duration-1000 -translate-x-64 "
           }
         >
           <div
-            className="w-[64px] h-[78px] rounded-2xl bg-theme-100 mr-10 scale-90 hover:scale-100 transition-all ease-in-out duration-300 hover:cursor-pointer"
+            className={
+              nav
+                ? "w-[64px] h-[78px] rounded-2xl bg-theme-100 mr-10 scale-90 hover:scale-100 transition-all ease-in-out duration-3000 hover:cursor-pointer"
+                : "hidden"
+            }
             onClick={() => {
               window.location.assign("/account");
             }}
@@ -167,7 +181,7 @@ function NavBarLog() {
             />
             <p
               ref={containerMob}
-              className={svg === null ? "hidden" : "w-full aspect-auto"}
+              className={svg === null ? "hidden" : "w-full aspect-auto "}
             ></p>
           </div>
         </div>

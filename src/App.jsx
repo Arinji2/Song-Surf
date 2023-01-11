@@ -6,7 +6,10 @@ import Verify from "./pages/auth/verify";
 import SignUp from "./pages/auth/signup";
 import Dashboard from "./pages/dashboard";
 import Finish from "./pages/finish";
-import Account from "./pages/account";
+import Account from "./pages/account/account";
+import Details from "./pages/account/details";
+import DeleteAccount from "./pages/account/delete";
+
 function App() {
   return (
     <div className="App">
@@ -20,6 +23,8 @@ function App() {
           <Route element={<Dashboard />} path="/dashboard"></Route>
           <Route element={<Finish />} path="/finish"></Route>
           <Route element={<Account />} path="/account"></Route>
+          <Route element={<Details />} path="/edit-account"></Route>
+          <Route element={<DeleteAccount />} path="/delete-account"></Route>
         </Routes>
       </Router>
     </div>
