@@ -19,7 +19,7 @@ function Dashboard() {
   useEffect(() => {
     onAuthStateChanged(auth, () => {
       if (auth) {
-        const docRef = doc(db, "users", auth.currentUser.uid);
+        const docRef = doc(db, "songsurf", auth.currentUser.uid);
         getDoc(docRef)
           .then((res) => {
             setDocument(res.data());

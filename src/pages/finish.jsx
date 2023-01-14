@@ -55,7 +55,7 @@ function Finish() {
   const submit = () => {
     setLoading(true);
     setTimeout(() => {
-      const docRef = doc(db, "users", auth.currentUser.uid);
+      const docRef = doc(db, "songsurf", auth.currentUser.uid);
 
       updateDoc(docRef, {
         name: name,

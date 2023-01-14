@@ -76,7 +76,7 @@ function Details() {
               <p
                 className="p-2 rounded-lg bg-green-500 text-[20px] font-bold text-white absolute bottom-5 hover:cursor-pointer scale-110 hover:scale-100 transition-all ease-in-out duration-300"
                 onClick={() => {
-                  const docRef = doc(db, "users", auth.currentUser.uid);
+                  const docRef = doc(db, "songsurf", auth.currentUser.uid);
                   updateDoc(docRef, {
                     name: name,
                   })
@@ -114,7 +114,7 @@ function Details() {
               <p
                 className="p-2 rounded-lg bg-green-500 text-[20px] font-bold text-white absolute bottom-5 hover:cursor-pointer scale-110 hover:scale-100 transition-all ease-in-out duration-300"
                 onClick={() => {
-                  const docRef = doc(db, "users", auth.currentUser.uid);
+                  const docRef = doc(db, "songsurf", auth.currentUser.uid);
                   updateDoc(docRef, {
                     email: email,
                   })
@@ -150,7 +150,7 @@ function Details() {
               <p
                 className="p-2 rounded-lg bg-green-500 text-[20px] font-bold text-white absolute bottom-5 hover:cursor-pointer scale-110 hover:scale-100 transition-all ease-in-out duration-300"
                 onClick={() => {
-                  const docRef = doc(db, "users", auth.currentUser.uid);
+                  const docRef = doc(db, "songsurf", auth.currentUser.uid);
                   updateDoc(docRef, {
                     "pref.pic": svg,
                   })

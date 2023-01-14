@@ -51,7 +51,7 @@ function Verify() {
     setError(false);
     setReset(false);
     setLoading(true);
-    const docRef = doc(db, "users", auth.currentUser.uid);
+    const docRef = doc(db, "songsurf", auth.currentUser.uid);
     setDoc(docRef, {
       name: auth.currentUser.displayName,
       email: auth.currentUser.email,
