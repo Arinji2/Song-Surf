@@ -21,12 +21,12 @@ function Reset() {
     <React.Fragment>
       <NavBar />
 
-      <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-center gap-5 mb-10 mt-20 md:mt-0">
-          <h2 className="text-center text-[50px] text-theme-200 font-bold ">
+      <div className="flex h-fit w-full flex-col items-center justify-center bg-[#090707] md:h-screen md:flex-row">
+        <div className="mb-10 mt-20 flex h-screen w-full flex-col items-center justify-center gap-5 md:mt-0 md:w-[60%]">
+          <h2 className="text-center text-[50px] font-bold text-theme-200 ">
             Reset your Song Surf Password
           </h2>
-          <h3 className="text-theme-100 text-[20px] font-semibold">
+          <h3 className="text-[20px] font-semibold text-theme-100">
             Input your Email
           </h3>
           <input
@@ -34,7 +34,7 @@ function Reset() {
             autoCapitalize="off"
             autoComplete="off"
             spellCheck="false"
-            className="rounded-lg h-[42px] w-[90vw] md:w-[480px] text-[20px] p-4 outline-none font-bold"
+            className="h-[42px] w-[90vw] rounded-lg p-4 text-[20px] font-bold outline-none md:w-[480px]"
             onChange={(e) => {
               e.currentTarget.value = e.currentTarget.value.replace(/ /g, "");
               e.currentTarget.value = e.currentTarget.value.toLowerCase();
@@ -43,7 +43,7 @@ function Reset() {
           />
 
           <div
-            className="rounded-lg h-[42px] w-[70vw] md:w-[400px] text-[20px] p-4 bg-theme-200 text-theme-50 flex flex-col items-center justify-center font-bold mt-5 hover:text-theme-200 hover:bg-theme-50 transition-all ease-in-out duration-300 hover:cursor-pointer"
+            className="mt-5 flex h-[42px] w-[70vw] flex-col items-center justify-center rounded-lg bg-theme-200 p-4 text-[20px] font-bold text-theme-50 transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-theme-50 hover:text-theme-200 md:w-[400px]"
             onClick={sendEmail}
           >
             Send Reset Link
@@ -51,7 +51,7 @@ function Reset() {
         </div>
         <div
           className={
-            "md:w-[40%] h-fit flex flex-col items-center justify-start mt-10 pb-10"
+            "mt-10 flex h-fit flex-col items-center justify-start pb-10 md:w-[40%]"
           }
         >
           <FontAwesomeIcon
@@ -59,7 +59,7 @@ function Reset() {
             className={
               reset
                 ? "hidden"
-                : "text-theme-200 text-[250px] transition-all ease-in-out duration-300"
+                : "text-[250px] text-theme-200 transition-all duration-300 ease-in-out"
             }
           />
 
@@ -67,7 +67,7 @@ function Reset() {
             icon={faEnvelopeOpen}
             className={
               reset
-                ? "text-theme-200 text-[250px] transition-all ease-in-out duration-300 hover:cursor-pointer"
+                ? "text-[250px] text-theme-200 transition-all duration-300 ease-in-out hover:cursor-pointer"
                 : "hidden"
             }
             onClick={() => {
@@ -77,7 +77,7 @@ function Reset() {
           <h2
             className={
               reset
-                ? "text-white text-2xl font-bold text-center mt-10"
+                ? "mt-10 text-center text-2xl font-bold text-white"
                 : "hidden"
             }
           >

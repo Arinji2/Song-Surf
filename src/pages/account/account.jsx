@@ -41,39 +41,39 @@ function Account() {
       <div
         className={
           loaded
-            ? "w-full h-screen bg-[#090707] flex flex-col items-center justify-end"
+            ? "flex h-screen w-full flex-col items-center justify-end bg-[#090707]"
             : "hidden"
         }
       >
         <div
           className={
             render
-              ? "w-full h-[85vh] flex flex-col items-center justify-start opacity-100 transition-opacity ease-in-out duration-[1500ms] gap-5"
-              : "opacity-0 transition-opacity ease-in-out duration-[1500ms]"
+              ? "flex h-[85vh] w-full flex-col items-center justify-start gap-5 opacity-100 transition-opacity duration-[1500ms] ease-in-out"
+              : "opacity-0 transition-opacity duration-[1500ms] ease-in-out"
           }
         >
           <h1 className="text-[50px] font-bold text-theme-200">Your Account</h1>
 
           <div
-            className="w-[200px] h-[200px] bg-theme-100 rounded-full hover:scale-110 transition-all ease-in-out duration-300"
+            className="h-[200px] w-[200px] rounded-full bg-theme-100 transition-all duration-300 ease-in-out hover:scale-110"
             ref={container}
           ></div>
 
-          <h3 className="text-white text-[40px]">{data.name}</h3>
-          <h3 className="text-white text-[20px]">{data.email}</h3>
-          <div className="flex flex-row items-end justify-evenly gap-5 w-full h-full pb-5">
+          <h3 className="text-[40px] text-white">{data.name}</h3>
+          <h3 className="text-[20px] text-white">{data.email}</h3>
+          <div className="flex h-full w-full flex-row items-end justify-evenly gap-5 pb-5">
             <p
-              className="p-2 rounded-lg bg-theme-200 text-white text-[15px] md:text-[20px] font-bold hover:-translate-y-3 transition-all ease-in-out duration-300 hover:cursor-pointer"
+              className="rounded-lg bg-theme-200 p-2 text-[15px] font-bold text-white transition-all duration-300 ease-in-out hover:-translate-y-3 hover:cursor-pointer md:text-[20px]"
               onClick={() => {
                 window.location.assign("/edit-account");
               }}
             >
               Change Details
             </p>
-            <p className="p-2 rounded-lg bg-theme-200 text-white text-[15px] md:text-[20px] font-bold hover:-translate-y-3 transition-all ease-in-out duration-300 hover:cursor-pointer">
+            <p className="rounded-lg bg-theme-200 p-2 text-[15px] font-bold text-white transition-all duration-300 ease-in-out hover:-translate-y-3 hover:cursor-pointer md:text-[20px]">
               Logout
             </p>
-            <p className="p-2 rounded-lg bg-theme-200 text-white text-[15px] md:text-[20px] font-bold hover:-translate-y-3 transition-all ease-in-out duration-300 hover:cursor-pointer">
+            <p className="rounded-lg bg-theme-200 p-2 text-[15px] font-bold text-white transition-all duration-300 ease-in-out hover:-translate-y-3 hover:cursor-pointer md:text-[20px]">
               Delete Account
             </p>
           </div>
@@ -83,7 +83,7 @@ function Account() {
         className={
           loaded
             ? "hidden"
-            : "w-full h-fit md:h-screen bg-[#090707] flex flex-col items-center justify-center"
+            : "flex h-fit w-full flex-col items-center justify-center bg-[#090707] md:h-screen"
         }
       >
         <Player

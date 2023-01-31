@@ -82,31 +82,31 @@ function Login() {
   return (
     <React.Fragment>
       <NavBar />
-      <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-center gap-5 mt-20 md:mt-4">
-          <h2 className="text-center text-[50px] text-theme-200 font-bold ">
+      <div className="flex h-fit w-full flex-col items-center justify-center bg-[#090707] md:h-screen md:flex-row">
+        <div className="mt-20 flex h-screen w-full flex-col items-center justify-center gap-5 md:mt-4 md:w-[60%]">
+          <h2 className="text-center text-[50px] font-bold text-theme-200 ">
             Login to Song Surf
           </h2>
-          <h3 className="text-theme-100 text-[20px] font-semibold">Email</h3>
+          <h3 className="text-[20px] font-semibold text-theme-100">Email</h3>
           <input
             type="email"
             autoCapitalize="off"
             autoComplete="off"
             spellCheck="false"
-            className="rounded-lg h-[42px] w-[90vw] md:w-[480px] text-[20px] p-4 outline-none font-bold"
+            className="h-[42px] w-[90vw] rounded-lg p-4 text-[20px] font-bold outline-none md:w-[480px]"
             onChange={(e) => {
               e.currentTarget.value = e.currentTarget.value.replace(/ /g, "");
 
               setEmail(e.currentTarget.value);
             }}
           />
-          <h3 className="text-theme-100 text-[20px] font-semibold">Password</h3>
+          <h3 className="text-[20px] font-semibold text-theme-100">Password</h3>
           <input
             type="password"
             autoCapitalize="off"
             autoComplete="off"
             spellCheck="false"
-            className="rounded-lg h-[42px] w-[90vw] md:w-[480px] text-[20px] p-4 outline-none"
+            className="h-[42px] w-[90vw] rounded-lg p-4 text-[20px] outline-none md:w-[480px]"
             onChange={(e) => {
               e.currentTarget.value = e.currentTarget.value.replace(/ /g, "");
 
@@ -114,16 +114,16 @@ function Login() {
             }}
           />
           <div
-            className="rounded-lg h-[42px] w-[70vw] md:w-[400px] text-[20px] p-4 bg-theme-200 text-theme-50 flex flex-col items-center justify-center font-bold mt-5 hover:text-theme-200 hover:bg-theme-50 transition-all ease-in-out duration-300 hover:cursor-pointer"
+            className="mt-5 flex h-[42px] w-[70vw] flex-col items-center justify-center rounded-lg bg-theme-200 p-4 text-[20px] font-bold text-theme-50 transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-theme-50 hover:text-theme-200 md:w-[400px]"
             onClick={handleLogin}
           >
             Log in
           </div>
-          <p className="w-[400px] text-theme-50 text-center font-semibold text-[20px] mt-5">
+          <p className="mt-5 w-[400px] text-center text-[20px] font-semibold text-theme-50">
             Or
           </p>
           <div
-            className="rounded-lg h-[42px]  w-[70vw] md:w-[400px] text-[20px] p-4 bg-theme-200 text-theme-50 flex flex-col items-center justify-center font-bold mt-5 hover:text-theme-200 hover:bg-theme-50 transition-all ease-in-out duration-300 hover:cursor-pointer"
+            className="mt-5 flex  h-[42px] w-[70vw] flex-col items-center justify-center rounded-lg bg-theme-200 p-4 text-[20px] font-bold text-theme-50 transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-theme-50 hover:text-theme-200 md:w-[400px]"
             onClick={loginwithGoogle}
           >
             <p>
@@ -131,12 +131,12 @@ function Login() {
               Google
             </p>
           </div>
-          <div className="w-[400px] flex flex-row items-center justify-evenly text-white font-bold">
-            <p className="underline underline-offset-4 decoration-theme-200 decoration-[2px] hover:cursor-pointer">
+          <div className="flex w-[400px] flex-row items-center justify-evenly font-bold text-white">
+            <p className="underline decoration-theme-200 decoration-[2px] underline-offset-4 hover:cursor-pointer">
               Sign up
             </p>
             <p
-              className="underline underline-offset-4 decoration-theme-200 decoration-[2px] hover:cursor-pointer"
+              className="underline decoration-theme-200 decoration-[2px] underline-offset-4 hover:cursor-pointer"
               onClick={() => {
                 window.location.assign("/reset");
               }}
@@ -147,41 +147,41 @@ function Login() {
         </div>
         <div
           className={
-            "md:w-[40%] h-fit flex flex-col items-center justify-start mt-10 pb-10"
+            "mt-10 flex h-fit flex-col items-center justify-start pb-10 md:w-[40%]"
           }
         >
           <FontAwesomeIcon
             icon={faUserShield}
             className={
               loading
-                ? "hidden transition-all ease-in-out duration-300"
+                ? "hidden transition-all duration-300 ease-in-out"
                 : error
-                ? "hidden transition-all ease-in-out duration-300"
+                ? "hidden transition-all duration-300 ease-in-out"
                 : success
-                ? "hidden transition-all ease-in-out duration-300"
-                : "text-theme-200 text-[250px] transition-all ease-in-out duration-300"
+                ? "hidden transition-all duration-300 ease-in-out"
+                : "text-[250px] text-theme-200 transition-all duration-300 ease-in-out"
             }
           />
           <div
             className={
               loading
-                ? "hidden transition-all ease-in-out duration-300"
+                ? "hidden transition-all duration-300 ease-in-out"
                 : error
-                ? "w-[300px] text-center md:w-[500px] h-fit bg-red-600 rounded-lg text-white flex flex-col items-center justify-start gap-5 transition-all ease-in-out duration-300"
-                : "hidden transition-all ease-in-out duration-300"
+                ? "flex h-fit w-[300px] flex-col items-center justify-start gap-5 rounded-lg bg-red-600 text-center text-white transition-all duration-300 ease-in-out md:w-[500px]"
+                : "hidden transition-all duration-300 ease-in-out"
             }
           >
-            <h2 className="text-[40px] font-bold items-center justify-center mt-10">
+            <h2 className="mt-10 items-center justify-center text-[40px] font-bold">
               Oops, an Error Occured
             </h2>
             <p className="text-[20px] font-semibold">{errorText}</p>
-            <p className="text-[20px] font-semibold mb-10">{errorCode}</p>
+            <p className="mb-10 text-[20px] font-semibold">{errorCode}</p>
           </div>
           <div
             className={
               loading
-                ? "block transition-all ease-in-out duration-300"
-                : "hidden transition-all ease-in-out duration-300"
+                ? "block transition-all duration-300 ease-in-out"
+                : "hidden transition-all duration-300 ease-in-out"
             }
           >
             <Oval
@@ -194,7 +194,7 @@ function Login() {
           <div
             className={
               success
-                ? "w-full h-screen bg-[#090707] flex flex-col items-center justify-center fixed top-0 left-0 z-20"
+                ? "fixed top-0 left-0 z-20 flex h-screen w-full flex-col items-center justify-center bg-[#090707]"
                 : "hidden"
             }
           >

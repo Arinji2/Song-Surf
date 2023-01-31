@@ -108,20 +108,20 @@ function Verify() {
     <React.Fragment>
       <NavBar />
 
-      <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-[60%] w-full h-screen flex flex-col items-center justify-center gap-5 mb-10 mt-10 md:mt-0">
-          <h2 className="text-center text-[50px] text-theme-200 font-bold ">
+      <div className="flex h-fit w-full flex-col items-center justify-center bg-[#090707] md:h-screen md:flex-row">
+        <div className="mb-10 mt-10 flex h-screen w-full flex-col items-center justify-center gap-5 md:mt-0 md:w-[60%]">
+          <h2 className="text-center text-[50px] font-bold text-theme-200 ">
             Verify your Song Surf Email
           </h2>
 
           <div
-            className="rounded-lg h-[42px] w-[70vw] md:w-[400px] text-[20px] p-4 bg-theme-200 text-theme-50 flex flex-col items-center justify-center font-bold mt-5 hover:text-theme-200 hover:bg-theme-50 transition-all ease-in-out duration-300 hover:cursor-pointer"
+            className="mt-5 flex h-[42px] w-[70vw] flex-col items-center justify-center rounded-lg bg-theme-200 p-4 text-[20px] font-bold text-theme-50 transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-theme-50 hover:text-theme-200 md:w-[400px]"
             onClick={sendEmail}
           >
             Send Verification Email
           </div>
           <div
-            className="rounded-lg h-[42px] w-[70vw] md:w-[400px] text-[20px] p-4 bg-theme-200 text-theme-50 flex flex-col items-center justify-center font-bold mt-5 hover:text-theme-200 hover:bg-theme-50 transition-all ease-in-out duration-300 hover:cursor-pointer"
+            className="mt-5 flex h-[42px] w-[70vw] flex-col items-center justify-center rounded-lg bg-theme-200 p-4 text-[20px] font-bold text-theme-50 transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-theme-50 hover:text-theme-200 md:w-[400px]"
             onClick={checkEmail}
           >
             Check Verification
@@ -129,7 +129,7 @@ function Verify() {
         </div>
         <div
           className={
-            "md:w-[40%] h-fit flex flex-col items-center justify-start mt-10 pb-10 relative"
+            "relative mt-10 flex h-fit flex-col items-center justify-start pb-10 md:w-[40%]"
           }
         >
           <FontAwesomeIcon
@@ -143,39 +143,39 @@ function Verify() {
                 ? "hidden"
                 : error
                 ? "hidden"
-                : "text-theme-200 text-[250px] transition-all ease-in-out duration-300"
+                : "text-[250px] text-theme-200 transition-all duration-300 ease-in-out"
             }
           />
 
           <div
             className={
               reset
-                ? "w-full h-full flex flex-col items-center justify-center"
+                ? "flex h-full w-full flex-col items-center justify-center"
                 : "hidden"
             }
           >
             <FontAwesomeIcon
               icon={faEnvelopeOpen}
               className={
-                "text-theme-200 text-[250px] transition-all ease-in-out duration-300 hover:cursor-pointer"
+                "text-[250px] text-theme-200 transition-all duration-300 ease-in-out hover:cursor-pointer"
               }
               onClick={() => {
                 window.location.assign("/login");
               }}
             />
-            <h2 className={"text-white text-2xl font-bold text-center mt-10"}>
+            <h2 className={"mt-10 text-center text-2xl font-bold text-white"}>
               Email Verification Link Sent
             </h2>
           </div>
           <div
             className={
               error
-                ? "w-full h-full flex flex-col items-center justify-center"
+                ? "flex h-full w-full flex-col items-center justify-center"
                 : "hidden"
             }
           >
-            <div className="w-[300px] text-center md:w-[500px] h-fit bg-red-600 rounded-lg text-white flex flex-col items-center justify-start gap-5 transition-all ease-in-out duration-300">
-              <h2 className="text-[40px] font-bold items-center justify-center mt-10">
+            <div className="flex h-fit w-[300px] flex-col items-center justify-start gap-5 rounded-lg bg-red-600 text-center text-white transition-all duration-300 ease-in-out md:w-[500px]">
+              <h2 className="mt-10 items-center justify-center text-[40px] font-bold">
                 Oops, an Error Occured
               </h2>
               <p className="text-[30px] font-semibold">Email Not Verified</p>
@@ -184,7 +184,7 @@ function Verify() {
           <div
             className={
               loading
-                ? "w-full h-full flex flex-col items-center justify-center"
+                ? "flex h-full w-full flex-col items-center justify-center"
                 : "hidden"
             }
           >
@@ -198,7 +198,7 @@ function Verify() {
           <div
             className={
               success
-                ? "w-full h-full bg-[#090707] flex flex-col items-center justify-center fixed top-0 left-0 z-20"
+                ? "fixed top-0 left-0 z-20 flex h-full w-full flex-col items-center justify-center bg-[#090707]"
                 : "hidden"
             }
             id="animation-container"

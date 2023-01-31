@@ -72,11 +72,11 @@ function Finish() {
   return (
     <React.Fragment>
       <NavBarLog icon={icon} />
-      <div className="w-full h-screen bg-[#090707] flex flex-col items-center justify-center gap-5">
-        <h1 className="text-theme-200 text-[30px]  md:text-[40px] font-bold">
+      <div className="flex h-screen w-full flex-col items-center justify-center gap-5 bg-[#090707]">
+        <h1 className="text-[30px] font-bold  text-theme-200 md:text-[40px]">
           Finish Your Account Setup
         </h1>
-        <h3 className="text-white font-semibold text-[30px]">
+        <h3 className="text-[30px] font-semibold text-white">
           What should we call you?
         </h3>
         <input
@@ -84,27 +84,27 @@ function Finish() {
           autoCapitalize="off"
           autoComplete="off"
           spellCheck="false"
-          className="rounded-lg h-[42px] w-[90vw] md:w-[480px] text-[20px] p-4 outline-none font-bold"
+          className="h-[42px] w-[90vw] rounded-lg p-4 text-[20px] font-bold outline-none md:w-[480px]"
           onChange={(e) => {
             e.currentTarget.value = e.currentTarget.value.replace(/ /g, "");
             setName(e.currentTarget.value);
           }}
         />
-        <h3 className="text-white font-semibold text-[30px]">Choose an Icon</h3>
+        <h3 className="text-[30px] font-semibold text-white">Choose an Icon</h3>
 
-        <div className="border-b-2 w-[80vw] flex flex-col items-center justify-center border-white pb-4 ">
-          <div className="w-[100px] h-[100px] rounded-xl bg-theme-100 flex flex-col items-center justify-center ">
-            <div className="w-[80px] h-[80px]" ref={containerRef}></div>
+        <div className="flex w-[80vw] flex-col items-center justify-center border-b-2 border-white pb-4 ">
+          <div className="flex h-[100px] w-[100px] flex-col items-center justify-center rounded-xl bg-theme-100 ">
+            <div className="h-[80px] w-[80px]" ref={containerRef}></div>
           </div>
           <p
-            className="text-xl p-4 m-3 text-white bg-theme-200 scale-90 hover:scale-100 transition-all ease-in-out duration-300 rounded-lg hover:cursor-pointer"
+            className="m-3 scale-90 rounded-lg bg-theme-200 p-4 text-xl text-white transition-all duration-300 ease-in-out hover:scale-100 hover:cursor-pointer"
             onClick={random}
           >
             <FontAwesomeIcon icon={faRandom} />
           </p>
         </div>
         <p
-          className="text-2xl text-white font-bold bg-theme-200 p-2 rounded-lg absolute bottom-10 border-2 border-theme-200 hover:text-theme-200 hover:bg-white transition-all ease-in-out duration-300 hover:cursor-pointer"
+          className="absolute bottom-10 rounded-lg border-2 border-theme-200 bg-theme-200 p-2 text-2xl font-bold text-white transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-white hover:text-theme-200"
           onClick={submit}
         >
           Submit
@@ -113,7 +113,7 @@ function Finish() {
       <div
         className={
           loading
-            ? "absolute z-30 w-full h-[85vh] bottom-0 left-0 bg-[#090707]"
+            ? "absolute bottom-0 left-0 z-30 h-[85vh] w-full bg-[#090707]"
             : "hidden"
         }
         id="loading-container"
@@ -121,7 +121,7 @@ function Finish() {
       <div
         className={
           success
-            ? "absolute z-50 w-full h-[85vh] bottom-0 left-0 bg-[#090707]"
+            ? "absolute bottom-0 left-0 z-50 h-[85vh] w-full bg-[#090707]"
             : "hidden"
         }
         id="success-container"

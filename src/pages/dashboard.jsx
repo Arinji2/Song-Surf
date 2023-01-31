@@ -37,19 +37,19 @@ function Dashboard() {
   return (
     <React.Fragment>
       <NavBarLog />
-      <div className="w-full h-fit md:h-screen bg-[#090707]">
+      <div className="h-fit w-full bg-[#090707] md:h-screen">
         <div
           className={
             ready
-              ? "w-full h-full opacity-100 transition-all ease-in-out duration-1000 flex flex-col items-center justify-center gap-5"
-              : "w-full h-full opacity-0 transition-all ease-in-out duration-1000 flex flex-col items-center justify-end md:justify-center gap-5"
+              ? "flex h-full w-full flex-col items-center justify-center gap-5 opacity-100 transition-all duration-1000 ease-in-out"
+              : "flex h-full w-full flex-col items-center justify-end gap-5 opacity-0 transition-all duration-1000 ease-in-out md:justify-center"
           }
         >
-          <p className="text-[30px] md:text-[40px] text-white font-bold mt-20 md:mt-0">
+          <p className="mt-20 text-[30px] font-bold text-white md:mt-0 md:text-[40px]">
             Welcome back{" "}
             <span className="text-theme-200">{ready ? document.name : ""}</span>
           </p>
-          <div className="w-screen flex flex-col md:flex-row items-center justify-center md:justify-evenly relative md:top-10 gap-y-5 mb-20 md:mb-0 mt-20 md:mt-0">
+          <div className="relative mb-20 mt-20 flex w-screen flex-col items-center justify-center gap-y-5 md:top-10 md:mb-0 md:mt-0 md:flex-row md:justify-evenly">
             <Card
               img={Account}
               head="Account"
@@ -70,7 +70,7 @@ function Dashboard() {
         className={
           ready
             ? "hidden"
-            : "w-full h-screen bg-black z-20 absolute top-0 flex flex-col items-center justify-center"
+            : "absolute top-0 z-20 flex h-screen w-full flex-col items-center justify-center bg-black"
         }
       >
         <Player
@@ -87,7 +87,7 @@ function Dashboard() {
 function Card({ img, head, disc, link }) {
   return (
     <div
-      className="h-[400px] w-[250px] bg-theme-100 rounded-lg relative flex flex-col items-center justify-center group overflow-hidden md:hover:scale-110 shadow-xl shadow-black transition-all ease-in-out duration-300 hover:cursor-pointer scale-100 text-center"
+      className="group relative flex h-[400px] w-[250px] scale-100 flex-col items-center justify-center overflow-hidden rounded-lg bg-theme-100 text-center shadow-xl shadow-black transition-all duration-300 ease-in-out hover:cursor-pointer md:hover:scale-110"
       onClick={() => {
         window.location.assign(`/${link}`);
       }}
@@ -95,13 +95,13 @@ function Card({ img, head, disc, link }) {
       <img
         src={img}
         alt={"image"}
-        className="object-cover rounded-lg h-full w-full z-0 absolute  group-hover:scale-[1.5] transition-all ease-in-out duration-500"
+        className="absolute z-0 h-full w-full rounded-lg object-cover  transition-all duration-500 ease-in-out group-hover:scale-[1.5]"
       />
-      <div className="h-full w-full z-10 bg-[#262525] opacity-60  transition-all ease-in-out duration-300 absolute rounded-lg"></div>
-      <h2 className="text-white text-[30px] md:text-[40px] transition-all ease-in-out duration-300 font-bold z-20">
+      <div className="absolute z-10 h-full w-full rounded-lg  bg-[#262525] opacity-60 transition-all duration-300 ease-in-out"></div>
+      <h2 className="z-20 text-[30px] font-bold text-white transition-all duration-300 ease-in-out md:text-[40px]">
         {head}
       </h2>
-      <p className="text-theme-200 absolute bottom-10 text-[20px] z-20 font-semibold ">
+      <p className="absolute bottom-10 z-20 text-[20px] font-semibold text-theme-200 ">
         {disc}
       </p>
     </div>

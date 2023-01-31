@@ -27,21 +27,21 @@ function Landing() {
 
 function Hero() {
   return (
-    <div className="w-full h-screen relative">
+    <div className="relative h-screen w-full">
       <img
         src={HeroPic}
         alt="Hero Picture"
-        className="w-full h-screen object-cover -z-20 absolute"
+        className="absolute -z-20 h-screen w-full object-cover"
       ></img>
-      <div className="w-full h-screen -z-10 absolute opacity-50 bg-[#262525]"></div>
-      <div className="w-full h-full flex flex-col items-center justify-center gap-5">
-        <h1 className="text-[60px] md:text-[110px]  font-bold text-theme-200 text-center">
+      <div className="absolute -z-10 h-screen w-full bg-[#262525] opacity-50"></div>
+      <div className="flex h-full w-full flex-col items-center justify-center gap-5">
+        <h1 className="text-center text-[60px]  font-bold text-theme-200 md:text-[110px]">
           SONG SURF
         </h1>
-        <p className="text-[15px] md:text-[20px] text-white">
+        <p className="text-[15px] text-white md:text-[20px]">
           Music Playing Redesigned
         </p>
-        <p className="mt-20 text-white text-[15px] md:text-[20px] pt-2 pb-2 pl-14 pr-14 bg-theme-200 border-theme-200 hover:bg-white hover:text-theme-200 transition-all ease-in-out duration-300 hover:cursor-pointer">
+        <p className="mt-20 border-theme-200 bg-theme-200 pt-2 pb-2 pl-14 pr-14 text-[15px] text-white transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-white hover:text-theme-200 md:text-[20px]">
           Start Listening
         </p>
       </div>
@@ -51,9 +51,9 @@ function Hero() {
 
 function Process() {
   return (
-    <div className="w-full h-fit md:h-screen bg-[#090707] flex flex-col items-center justify-center gap-5 text-white">
-      <h1 className="text-[40px] font-bold mb-5">The Process</h1>
-      <div className="w-full flex flex-col md:flex-row items-center justify-evenly mt-14 gap-y-20 mb-10">
+    <div className="flex h-fit w-full flex-col items-center justify-center gap-5 bg-[#090707] text-white md:h-screen">
+      <h1 className="mb-5 text-[40px] font-bold">The Process</h1>
+      <div className="mt-14 mb-10 flex w-full flex-col items-center justify-evenly gap-y-20 md:flex-row">
         <Card
           num="1"
           icon={faYoutube}
@@ -78,12 +78,12 @@ function Process() {
 
   function Card({ num, icon, head, desc }) {
     return (
-      <div className="h-[280px] w-[190px] bg-theme-100 rounded-[20px] flex flex-col items-center justify-center relative gap-5 text-center">
-        <div className="w-[75px] h-[72px] rounded-full bg-theme-50 absolute -top-10 flex flex-col items-center justify-center">
-          <p className="text-white text-4xl">{num}</p>
+      <div className="relative flex h-[280px] w-[190px] flex-col items-center justify-center gap-5 rounded-[20px] bg-theme-100 text-center">
+        <div className="absolute -top-10 flex h-[72px] w-[75px] flex-col items-center justify-center rounded-full bg-theme-50">
+          <p className="text-4xl text-white">{num}</p>
         </div>
         <FontAwesomeIcon icon={icon} className="text-5xl" />
-        <h2 className="text-theme-200 font-bold text-[30px]">{head}</h2>
+        <h2 className="text-[30px] font-bold text-theme-200">{head}</h2>
         <p className="text-[17px]">{desc}</p>
       </div>
     );
@@ -92,18 +92,18 @@ function Process() {
 
 function Awesome() {
   return (
-    <div className="w-full h-screen">
+    <div className="h-screen w-full">
       <img
         src={AwesomePic}
         alt="Party Pic"
-        className="absolute w-full h-full object-cover -z-20"
+        className="absolute -z-20 h-full w-full object-cover"
       />
-      <div className="w-full h-screen -z-10 absolute opacity-50 bg-[#262525]"></div>
-      <div className="w-full h-screen relative z-10 flex flex-col items-center justify-start text-white">
-        <h2 className="p-4 bg-theme-200 font-bold text-[40px] text-center mt-10">
+      <div className="absolute -z-10 h-screen w-full bg-[#262525] opacity-50"></div>
+      <div className="relative z-10 flex h-screen w-full flex-col items-center justify-start text-white">
+        <h2 className="mt-10 bg-theme-200 p-4 text-center text-[40px] font-bold">
           Why Are We So <br /> Awesome
         </h2>
-        <div className="w-full flex flex-col md:flex-row items-center md:justify-evenly  text-[40px] md:text-[50px] font-bold absolute bottom-0 md:bottom-28 text-center">
+        <div className="absolute bottom-0 flex w-full flex-col items-center  text-center text-[40px] font-bold md:bottom-28 md:flex-row md:justify-evenly md:text-[50px]">
           <p className="mb-5 border-b-4 border-white md:mb-0 md:border-b-0 md:border-transparent">
             Free <br /> Forever
           </p>
@@ -121,9 +121,9 @@ function Awesome() {
 
 function Features() {
   return (
-    <div className="h-fit md:h-screen w-full relative bg-[#090707] flex flex-col items-center justify-center text-white">
-      <h1 className="text-[50px] font-bold mb-5 mt-10">Features</h1>
-      <div className="flex flex-col md:flex-row items-center justify-evenly w-full mb-10 gap-10">
+    <div className="relative flex h-fit w-full flex-col items-center justify-center bg-[#090707] text-white md:h-screen">
+      <h1 className="mb-5 mt-10 text-[50px] font-bold">Features</h1>
+      <div className="mb-10 flex w-full flex-col items-center justify-evenly gap-10 md:flex-row">
         <Card icon={faPenSquare} head="Modern Design" />
         <Card icon={faFastForward} head="Fast Conversions" />
         <Card icon={faUserShield} head="Stored Securely" />
@@ -134,9 +134,9 @@ function Features() {
 
   function Card({ icon, head }) {
     return (
-      <div className="h-[350px] w-[190px] bg-theme-100 rounded-[20px] flex flex-col items-center justify-center relative gap-10 text-center">
+      <div className="relative flex h-[350px] w-[190px] flex-col items-center justify-center gap-10 rounded-[20px] bg-theme-100 text-center">
         <h1 className="text-[30px] font-bold text-theme-200">{head}</h1>
-        <FontAwesomeIcon icon={icon} className="text-white text-5xl" />
+        <FontAwesomeIcon icon={icon} className="text-5xl text-white" />
       </div>
     );
   }

@@ -63,22 +63,22 @@ function DeleteAccount() {
   return (
     <React.Fragment>
       <NavBarLog />
-      <div className="w-full h-screen flex flex-col items-center justify-end bg-[#090707]">
+      <div className="flex h-screen w-full flex-col items-center justify-end bg-[#090707]">
         <div
           className={
             ready
-              ? "w-full h-[85vh] flex flex-col items-center justify-center opacity-100 transition-opacity ease-in-out duration-[1500ms]"
-              : "opacity-0 transition-opacity ease-in-out duration-[1500ms]"
+              ? "flex h-[85vh] w-full flex-col items-center justify-center opacity-100 transition-opacity duration-[1500ms] ease-in-out"
+              : "opacity-0 transition-opacity duration-[1500ms] ease-in-out"
           }
         >
-          <h1 className="text-[50px] text-theme-200 font-bold">
+          <h1 className="text-[50px] font-bold text-theme-200">
             Delete your Account
           </h1>
-          <div className="flex flex-col items-center justify-center w-screen text-center gap-10 mt-10">
-            <h2 className="text-[30px] text-white font-semibold">
+          <div className="mt-10 flex w-screen flex-col items-center justify-center gap-10 text-center">
+            <h2 className="text-[30px] font-semibold text-white">
               Enter your Email As Shown Here to Confirm
             </h2>
-            <p className="text-theme-200 text-[30px]">
+            <p className="text-[30px] text-theme-200">
               {ready ? auth.currentUser.email : ""}
             </p>
             <input
@@ -86,13 +86,13 @@ function DeleteAccount() {
               autoCapitalize="off"
               autoComplete="off"
               spellCheck="false"
-              className="rounded-lg h-[22px] w-[50%] text-[20px] p-4 outline-none font-bold mt-10"
+              className="mt-10 h-[22px] w-[50%] rounded-lg p-4 text-[20px] font-bold outline-none"
               onChange={(e) => {
                 setEmail(e.currentTarget.value);
               }}
             />
             <p
-              className="p-2 rounded-lg bg-red-600 text-white text-[20px] font-bold hover:cursor-pointer"
+              className="rounded-lg bg-red-600 p-2 text-[20px] font-bold text-white hover:cursor-pointer"
               onClick={deleteAcct}
             >
               Delete Account
@@ -102,7 +102,7 @@ function DeleteAccount() {
         <div
           className={
             deleteFlg
-              ? "w-full h-screen fixed top-0 left-0 bg-red-400 flex flex-col items-center justify-center"
+              ? "fixed top-0 left-0 flex h-screen w-full flex-col items-center justify-center bg-red-400"
               : "hidden"
           }
         >
